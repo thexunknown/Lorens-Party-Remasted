@@ -1,8 +1,10 @@
 LoadP3DFile("art\missions\level05\m6.p3d");
 
 LoadP3DFile("art\missions\level01\bonebox.p3d");
+LoadP3DFile("art\missions\level05\saus.p3d");
 
 LoadP3DFile( "art\frontend\dynaload\images\msnicons\object\bonestor.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\object\saus.p3d" );
 LoadP3DFile( "art\frontend\dynaload\images\msnicons\vehicle\fishtruc.p3d" );
 
 LoadDisposableCar("art\cars\fishtruc.p3d","fishtruc","AI"); 
