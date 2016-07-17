@@ -8,3 +8,5 @@ Here I will be uploading all the files needed to run the mod regularly, so you c
 I feel the changes that I have made are sufficient and that the mod is in a good state to play at the moment.
 
 A lot more needs to be added, so please be aware that this mod is not in it's final state.
+
+Models that are used (sausage roll, present and coffee) are avaliable on the Sketchup 3D Warehouse and are not made by me.
