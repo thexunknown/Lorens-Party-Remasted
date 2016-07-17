@@ -1,6 +1,3 @@
-//File created by xUnknown for the mod "Loren's Party 17"
-//https://github.com/thexunknown/Lorens-Party-Remasted
-
 SelectMission("m2");
 
 SetMissionResetPlayerInCar("m2_carstart");

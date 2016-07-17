@@ -1,6 +1,3 @@
-//File created by xUnknown for the mod "Loren's Party 17"
-//https://github.com/thexunknown/Lorens-Party-Remasted
-
 SelectMission("m6sd");
 
 SetMissionResetPlayerOutCar("m6_bart_start","m6_bart_carstart");
