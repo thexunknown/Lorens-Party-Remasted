@@ -1,0 +1,23 @@
+SelectMission("m4sd");
+
+SetMissionResetPlayerOutCar("m4_bart_start","m4_bart_carstart");
+SetDynaLoadData("l5r4.p3d;l5r3.p3d;l5z4.p3d;");
+
+UsePedGroup(5);
+
+AddStage(0);
+	SetStageMessageIndex(99);
+	SetHUDIcon("ferrini");
+	AddStageVehicle("bart_v", "m4_bart_carstart", "NULL", "Missions\sattruck.con"); //load vehicle
+	AddObjective("goto", "neither");
+		TurnGotoDialogOff();
+		SetDestination("m4_bartcar_trig","triggersphere");
+		SetCollectibleEffect("wrench_collect");
+		MustActionTrigger();
+	CloseObjective();
+CloseStage();
+
+
+
+
+CloseMission();

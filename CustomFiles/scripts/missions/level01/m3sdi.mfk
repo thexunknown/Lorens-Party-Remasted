@@ -1,0 +1,29 @@
+SelectMission("m3sd");
+
+SetMissionResetPlayerOutCar("m3_bart_start","m3_bart_carstart");
+SetDynaLoadData("l5r4.p3d;l5r3.p3d;l5z4.p3d;");
+
+UsePedGroup(5);
+
+AddStage();
+	AddStageVehicle("frink_v", "m3_frink_carloc", "NULL", "Missions\level01\m5evade.con"); //load vehicle
+	SetStageMessageIndex(1);
+	SetHUDIcon( "matlock" );
+	AddObjective("goto");
+		AddNPC("frink", "m3_frink_loc"); //legitimate business man club
+		SetDestination("m3_frink_trig", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(2);
+	SetHUDIcon("frink");
+	AddObjective("talkto");
+		AddNPC("frink", "m3_frink_loc");
+		AddStageVehicle("frink_v","m3_frink_carloc","NULL","Missions\level05\M1chase.con");
+		SetTalkToTarget("frink", 0, 0);
+	CloseObjective();
+CloseStage();
+
+CloseMission();

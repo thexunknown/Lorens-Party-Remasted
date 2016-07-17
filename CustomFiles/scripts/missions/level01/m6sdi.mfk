@@ -1,0 +1,21 @@
+SelectMission("m6sd");
+
+SetMissionResetPlayerOutCar("m6_bart_start","m6_bart_carstart");
+SetDynaLoadData("l5r3.p3d;l5r4.p3d;l5z4.p3d;");
+
+UsePedGroup(5);
+
+AddStage(0);
+	SetStageMessageIndex(1);
+	SetHUDIcon("ferrini");
+	AddStageVehicle("fishtruc", "m6_van_loc", "NULL", "Missions\level01\m5evade.con", "smithers");
+	AddObjective("goto", "neither");
+		TurnGotoDialogOff();
+		SetDestination("m6_bart_cartrig","triggersphere");
+		SetCollectibleEffect("wrench_collect");
+		MustActionTrigger();
+	CloseObjective();
+CloseStage();
+
+
+CloseMission();

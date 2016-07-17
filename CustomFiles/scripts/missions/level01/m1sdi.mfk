@@ -1,0 +1,36 @@
+SelectMission("m1sd");
+
+SetMissionResetPlayerOutCar("bart_stadium_start","bart_stadium_carstart");
+SetDynaLoadData("l5z4.p3d;l5r3.p3d;l5r4.p3d;l5z1.p3d;");
+
+UsePedGroup(5);
+
+//AddStage(0); 
+//	SetStageMessageIndex(1);
+//	SetHUDIcon("ferrini");
+//	AddObjective("getin");
+//		SetObjTargetVehicle("current");
+//	CloseObjective();
+//CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(2);
+	SetHUDIcon("stadium");
+	AddObjective("goto");
+		AddNPC("kenny", "m1_kenny_stand_2");
+		AddStageVehicle("cNerd","m1_kenny_carstart","NULL","Missions\level05\M1chase.con");
+		SetDestination("m1_stadium_trigger", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(3);
+	SetHUDIcon("kenny");
+	AddObjective("talkto");
+		AddNPC("kenny", "m1_kenny_stand_2");
+		SetTalkToTarget("kenny", 0, 0);
+	CloseObjective();
+CloseStage();
+
+CloseMission();

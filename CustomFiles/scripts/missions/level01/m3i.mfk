@@ -1,0 +1,119 @@
+SelectMission("m3");
+
+SetMissionResetPlayerInCar("m3_frink_carloc");
+SetDynaLoadData("l5r4.p3d;l5r3.p3d;l5z4.p3d;");
+InitLevelPlayerVehicle("frink_v","m3_frink_carloc","OTHER");
+
+//This is a forced car mission
+SetForcedCar();
+SetNumValidFailureHints( 5 );
+
+AddStage();
+	RESET_TO_HERE();
+	AddStageVehicle("cVan", "m3_van_loc", "NULL", "Missions\sattruck.con"); //load vehicle
+	SetStageMessageIndex(3);
+	SetHUDIcon( "setelite" ); //satelite
+	SetMaxTraffic(4);
+	AddObjective("goto");
+		RemoveNPC("frink");
+		SetDestination("m3_van_trig", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(65);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(4);
+	SetHUDIcon("cvan_v");
+	ActivateVehicle("cVan", "evade", "Missions\sattruck.con");  //change this script for custom
+	AddStageWaypoint("l1");
+	AddStageWaypoint("l3");
+	AddStageWaypoint("l4");
+	AddStageWaypoint("l7");
+	AddStageWaypoint("l10");
+	AddStageWaypoint("l11");
+	AddStageWaypoint("l14");
+	AddStageWaypoint("l16");
+	AddObjective("destroy");
+	   SetObjTargetVehicle("cVan");
+	CloseObjective();
+	AddObjective("dump");
+		SetObjTargetVehicle("cVan");
+		AddCollectible("m7_redkey","s_dish");
+	CloseObjective();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "frink_v" );
+	CloseCondition();
+	SetStageTime(230);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(6);
+	SetHUDIcon("kburger");
+	AddObjective("goto", "neither");
+		SetDestination("m3_radio_loc","triggersphere");
+		SetCollectibleEffect("wrench_collect");
+		MustActionTrigger();
+	CloseObjective();
+	SetStageTime(40);
+	AddCondition("timeout");
+	CloseCondition();
+	SetFadeOut(0.5);
+CloseStage();
+
+//time wait
+
+AddStage();
+	SetStageMessageIndex(7);
+	SetHUDIcon( "matlock" );
+	AddStageVehicle("bart_v", "m4_bart_carstart", "NULL", "Missions\sattruck.con"); //load vehicle
+	AddObjective("goto");
+		SetDestination("m3_frink_trig", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(40);
+	AddCondition("timeout");
+	CloseCondition();
+	SetFadeOut(1.0);
+CloseStage();
+
+//remove car that you are driving
+
+AddStage();
+    AddObjective("timer");
+		AddStageCharacter( "bart", "m3_bartpresloc", "", "current", "m3_bartcarloc" );
+        StayInBlack();
+        SetDurationTime(1);
+		SwapInDefaultCar();
+		SetSwapDefaultCarLocator("m3_frink_carloc");
+		SetSwapForcedCarLocator("m3_frink_carloc");
+		SetSwapPlayerLocator("m3_bartpresloc");
+		//RemoveDriver("frink");
+    CloseObjective();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(8);
+	SetHUDIcon("frink");
+	AddObjective("talkto");
+		AddNPC("frink", "m3_frink_loc");
+		AddStageVehicle("frink_v","m3_frink_carloc","NULL","Missions\level05\M1chase.con");
+		SetTalkToTarget("frink", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	SetStageMessageIndex(9);
+	SetHUDIcon("present"); 
+		AddObjective("goto");
+			SetDestination("m3_present_loc", "present");
+			SetCollectibleEffect("wrench_collect");
+		CloseObjective();
+CloseStage();
+
+CloseMission();

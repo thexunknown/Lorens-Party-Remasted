@@ -1,0 +1,58 @@
+SelectMission("m6");
+
+SetMissionResetPlayerInCar("m6_bart_carstart");
+SetDynaLoadData("l5r1.p3d;l5r4.p3d;l5z1.p3d;");
+
+InitLevelPlayerVehicle("bart_v","m6_bart_carstart","OTHER");
+
+SetForcedCar();
+SetNumValidFailureHints( 5 );
+
+AddStage();
+	RESET_TO_HERE();
+	SetHUDIcon("fishtruc");
+	AddStageVehicle("fishtruc", "m6_van_loc", "NULL", "Missions\level01\m5evade.con", "smithers");
+	SetStageMessageIndex(2);
+	AddObjective("goto");
+		SetDestination("m6_vantrig", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	SetStageMessageIndex(3);
+	//SetHUDIcon("cNerd");
+	ActivateVehicle("fishtruc", "NULL", "target"); 
+	AddStageWaypoint("l1");
+	AddStageWaypoint("l2");
+	AddStageWaypoint("l3");
+	AddStageWaypoint("l4");
+	AddStageWaypoint("l5");
+	AddStageWaypoint("l6");
+	AddStageWaypoint("l7");
+	AddStageWaypoint("l8");
+	AddStageWaypoint("l9");
+	AddStageWaypoint("l10");
+	AddStageWaypoint("l11");
+	AddStageWaypoint("l12");
+	AddObjective("dump","neither");
+		SetObjTargetVehicle("fishtruc");
+		AddCollectible("s1","bonestorm");
+		AddCollectible("s2","bonestorm");
+		AddCollectible("s3","bonestorm");
+		AddCollectible("s4","bonestorm");
+		AddCollectible("s5","bonestorm");
+		AddCollectible("s6","bonestorm");
+		AddCollectible("s7","bonestorm");
+		AddCollectible("s8","bonestorm");
+		AddCollectible("s9","bonestorm");
+		AddCollectible("s10","bonestorm");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	SetFadeOut(0.5);
+CloseStage();
+
+CloseMission();

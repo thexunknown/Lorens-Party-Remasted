@@ -1,0 +1,34 @@
+//Mission P3D
+LoadP3DFile("art\missions\level05\m1.p3d");
+
+//Box explosion effect (may use).
+LoadP3DFile("art\missions\level01\boxexpld.p3d");
+
+//Collectible Items - Soda can, donuts, and fireworks.
+LoadP3DFile("art\missions\level04\donut.p3d");
+LoadP3DFile("art\missions\level01\h_soda.p3d");
+LoadP3DFile("art\missions\level02\firewrks.p3d");
+LoadP3DFile("art\missions\level02\i_firewk.p3d");
+
+
+//Forced Car
+LoadDisposableCar("art\cars\cNerd.p3d","cNerd","OTHER");
+
+//AI Cars
+LoadDisposableCar("art\cars\cDuff.p3d","cDuff","AI"); 
+LoadDisposableCar("art\cars\cCola.p3d","cCola","AI"); 
+LoadDisposableCar("art\cars\cDonut.p3d","cDonut","AI"); 
+LoadDisposableCar("art\cars\jNerd.p3d","jNerd","AI"); 
+LoadDisposableCar("art\cars\lNerd.p3d","lNerd","AI"); 
+
+//Mission Objective Icons
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\char\moleman.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\char\moe.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\lardlads.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\moes.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\object\donuts.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\vehicle\cola_v.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\stadium.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\char\kenny.p3d" );
+
+LoadP3DFile("art\missions\level04\cola.p3d");

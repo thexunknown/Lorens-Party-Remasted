@@ -1,0 +1,80 @@
+SelectMission("m4");
+
+SetMissionResetPlayerInCar("m4_bart_carstart");
+SetDynaLoadData("l5r4.p3d;l5r3.p3d;l5z4.p3d;");
+InitLevelPlayerVehicle("bart_v","m4_bart_carstart","OTHER");
+
+SetNumValidFailureHints( 5 );
+
+
+AddStage();
+	SetStageMessageIndex(1);
+	RESET_TO_HERE();
+	SetHUDIcon("ferrini");
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(2);
+	AddStageVehicle("cBlbart", "m4_jake_loc", "NULL", "Missions\blbarttweak.con"); //load vehicle
+	SetHUDIcon("google");
+	AddObjective("goto", "neither");
+		SetDestination("m4_jake_trig","carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(40);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(4);
+	SetHUDIcon("sports_v");
+	ActivateVehicle("cBlbart", "NULL", "evade"); 
+	AddStageWaypoint("l1");
+	AddStageWaypoint("l2");
+	AddStageWaypoint("l3");
+	AddStageWaypoint("l4");
+	AddStageWaypoint("l5");
+	AddStageWaypoint("l6");
+	AddStageWaypoint("l7");
+	AddStageWaypoint("l8");
+	AddObjective("dump");
+		SetObjTargetVehicle("cBlbart");
+		AddCollectible("m7_redkey","present");
+	CloseObjective();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "bart_v" );
+	CloseCondition();
+	SetStageTime(200);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+
+AddStage();
+	SetStageMessageIndex(5);
+	SetHUDIcon("cbg");
+	AddObjective("timer");
+		SetDurationTime(3);
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	SetStageMessageIndex(6);
+	AddStageVehicle("comic_v", "m4_cbg_carloc", "NULL", "Missions\blbarttweak.con"); //load vehicle
+	SetHUDIcon("java");
+	AddObjective("goto", "neither");
+		AddNPC("cbg", "m4_cbg_loc");
+		SetDestination("m4_cbg_trig","carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(30);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+CloseMission();

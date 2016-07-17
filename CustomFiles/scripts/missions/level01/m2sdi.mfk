@@ -1,0 +1,18 @@
+SelectMission("m2sd");
+
+SetMissionResetPlayerOutCar("bart_stadium_start","bart_stadium_carstart");
+SetDynaLoadData("l5z4.p3d;l5r3.p3d;l5r4.p3d;l5z1.p3d;");
+
+UsePedGroup(5);
+
+AddStage(0);
+	SetStageMessageIndex(98);
+	SetHUDIcon("kenny");
+	AddObjective("talkto");
+		AddNPC("kenny", "m2_kenny_stand");
+		AddStageVehicle("cNerd","m2_kenny_pm_carhide","NULL","Missions\level05\M1chase.con");
+		SetTalkToTarget("kenny", 0, 0);
+	CloseObjective();
+CloseStage();
+
+CloseMission();

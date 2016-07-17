@@ -1,0 +1,24 @@
+SelectMission("m0sd");
+
+SetMissionResetPlayerOutCar("level5_apu_start","level5_carstart");
+SetDynaLoadData("l5z4.p3d;l5r3.p3d;l5r4.p3d;");
+
+UsePedGroup(5);
+SetMissionStartCameraName( "mission1camShape" );
+SetMissionStartMulticontName( "mission1cam" );
+SetAnimatedCameraName( "mission1camShape" );
+SetAnimCamMulticontName( "mission1cam" );
+
+AddStage(0);
+	SetStageMessageIndex(1);
+	SetHUDIcon("bart");
+	AddObjective("goto", "neither");
+		TurnGotoDialogOff();
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis05_01.p3d" );
+		SetDestination("m0_locater_sd","triggersphere");
+		SetCollectibleEffect("wrench_collect");
+		MustActionTrigger();
+	CloseObjective();
+CloseStage();
+
+CloseMission();

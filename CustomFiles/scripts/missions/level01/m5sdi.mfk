@@ -1,0 +1,30 @@
+SelectMission("m5sd");
+
+SetMissionResetPlayerOutCar("m5_bart_start","m5_bart_carstart");
+SetDynaLoadData("l5r1.p3d;l5r4.p3d;l5z1.p3d;");
+
+UsePedGroup(5);
+
+AddStage();
+	SetStageMessageIndex(99);
+	AddStageVehicle("comic_v", "m5_cbg_carloc", "NULL", "Missions\blbarttweak.con"); //load vehicle
+	SetHUDIcon("java");
+	AddObjective("goto");
+		AddNPC("cbg", "m5_cbg_loc");
+		SetDestination("m5_cbg_trig","carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(1);
+	AddStageVehicle("comic_v", "m5_cbg_carloc", "NULL", "Missions\blbarttweak.con"); //load vehicle
+	SetHUDIcon("cbg");
+	AddObjective("talkto");
+		AddNPC("cbg", "m5_cbg_loc");
+		SetTalkToTarget("cbg", 0, 0);
+	CloseObjective();
+CloseStage();
+
+
+CloseMission();

@@ -1,0 +1,81 @@
+SelectMission("m5");
+
+SetMissionResetPlayerInCar("m5_cbg_carloc");
+SetDynaLoadData("l5r1.p3d;l5r4.p3d;l5z1.p3d;");
+
+InitLevelPlayerVehicle("comic_v","m5_cbg_carloc","OTHER");
+
+SetForcedCar();
+SetNumValidFailureHints( 5 );
+
+AddStage();
+	RESET_TO_HERE();
+	AddStageVehicle("cNerd", "m5_loren_carloc", "NULL", "Missions\level01\m5evade.con", "homer"); //load vehicle
+	SetStageMessageIndex(2);
+	SetHUDIcon( "matlock" );
+	AddObjective("goto");
+		RemoveNPC("cbg"); //legitimate business man club
+		SetDestination("m5_loren_cartrig", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(3);
+	SetHUDIcon("cNerd");
+	ActivateVehicle("cNerd", "NULL", "target"); 
+	AddStageWaypoint("l1");
+	AddStageWaypoint("l2");
+	AddStageWaypoint("l3");
+	AddStageWaypoint("l4");
+	AddStageWaypoint("l5");
+	AddStageWaypoint("l6");
+	AddStageWaypoint("l7");
+	AddStageWaypoint("l8");
+	AddStageWaypoint("l9");
+	AddStageWaypoint("l10");
+	AddStageWaypoint("l11");
+	AddStageWaypoint("l12");
+	AddObjective("follow", "neither");
+		SetObjTargetVehicle("cNerd");
+	CloseObjective();
+	AddCondition("followdistance");
+		SetFollowDistances(0, 150);
+		SetCondTargetVehicle("cNerd");
+	CloseCondition();
+	SetFadeOut(0.5);
+CloseStage();
+
+AddStage();
+    AddObjective("timer");
+		AddStageCharacter( "bart", "m5_bart_kburgerloc", "", "current", "m5_bart_carstart" );
+        StayInBlack();
+        SetDurationTime(1);
+		SwapInDefaultCar();
+		SetSwapDefaultCarLocator("m5_cbg_kburgerloc");
+		SetSwapForcedCarLocator("m5_cbg_kburgerloc");
+		SetSwapPlayerLocator("m5_bart_kburgerloc");
+    CloseObjective();
+CloseStage();
+
+
+AddStage("final"); //dialogue
+	SetStageMessageIndex(4);
+	SetHUDIcon("homer");
+	AddStageVehicle("bart_v", "m6_bart_carstart", "NULL", "Missions\level01\m5evade.con");
+	AddStageVehicle("comic_v", "m5_cbg_kburgerloc", "target", "Missions\level01\M5evade.con", "cbg");
+	AddStageWaypoint("l14");
+	AddStageWaypoint("l15");
+	AddStageWaypoint("l16");
+	AddObjective("timer");
+		SetDurationTime(3);
+	CloseObjective(); 
+	AddObjective("talkto");
+		AddNPC("homer", "m5_homer_loc");
+		AddStageVehicle("cNerd","m5_homer_carloc","NULL","Missions\level05\M1chase.con");
+		RemoveDriver("homer");
+		SetTalkToTarget("homer", 0, 0);
+	CloseObjective();
+CloseStage();
+
+CloseMission();

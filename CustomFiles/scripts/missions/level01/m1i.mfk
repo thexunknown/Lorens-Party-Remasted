@@ -1,0 +1,140 @@
+SelectMission("m1");
+
+SetMissionResetPlayerInCar("m1_kenny_carstart");
+SetDynaLoadData("l5z4.p3d;l5r3.p3d;l5r4.p3d;l5z1.p3d;");
+InitLevelPlayerVehicle("cNerd","m1_kenny_carstart","OTHER");
+
+//This is a forced car mission
+SetForcedCar();
+SetNumValidFailureHints( 5 );
+
+AddStage(0);
+
+RESET_TO_HERE();
+
+//SetMaxTraffic(0);
+
+SetHUDIcon("lardlads");
+
+SetStageMessageIndex(4);
+
+	AddObjective("goto");
+		AddNPC("kenny", "m1_hide_npc");
+		AddStageVehicle("cDonut","m1_donut_carstart","NULL","Missions\level01\M6dump.con", "moleman");
+		SetDestination("m1_lardlads_trigger", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	
+	SetStageTime(25);
+	AddCondition("timeout");
+	CloseCondition();
+
+StageStartMusicEvent("M7_start");
+
+CloseStage();
+
+
+AddStage(0);
+
+SetHUDIcon("donuts");
+
+SetStageMessageIndex(5);
+
+//SetMaxTraffic(1);
+
+ActivateVehicle("cDonut","NULL","target");
+
+SetVehicleAIParams( "cDonut", -10, -9 );   // no shortcuts
+
+	AddStageWaypoint( "m1_donut_path1" );
+	AddStageWaypoint( "m1_donut_path2" );
+	AddStageWaypoint( "m1_donut_path3" );
+	AddStageWaypoint( "m1_donut_path4" );
+	AddStageWaypoint( "m1_donut_path5" );
+	AddStageWaypoint( "m1_donut_path6" );
+	AddStageWaypoint( "m1_donut_path7" );
+	AddStageWaypoint( "m1_donut_path8" );
+	
+	AddObjective("dump");
+		SetObjTargetVehicle("cDonut");
+		AddCollectible("m1_donutitem_1","donut");
+		AddCollectible("m1_donutitem_2","donut");
+		AddCollectible("m1_donutitem_3","donut");
+		AddCollectible("m1_donutitem_4","donut");
+		AddCollectible("m1_donutitem_5","donut");
+		AddCollectible("m1_donutitem_6","donut");
+		AddCollectible("m1_donutitem_7","donut");
+		AddCollectible("m1_donutitem_8","donut");
+		AddCollectible("m1_donutitem_9","donut");
+		AddCollectible("m1_donutitem_10","donut");
+		AddCollectible("m1_donutitem_11","donut");
+		AddCollectible("m1_donutitem_12","donut");
+		AddCollectible("m1_donutitem_13","donut");
+		AddCollectible("m1_donutitem_14","donut");
+	CloseObjective();
+	
+	SetStageTime(135);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	
+	AddCondition("followdistance");
+		SetFollowDistances(0, 120);
+		SetCondTargetVehicle("cDonut");
+	CloseCondition();
+	
+	ShowStageComplete();
+CloseStage();
+
+
+AddStage();
+
+SetStageMessageIndex(6);
+
+SetHUDIcon("moleman");
+
+ActivateVehicle("cDonut","NULL","chase"); 
+	AddObjective("losetail");
+		SetObjTargetVehicle("cDonut");
+		SetObjDistance(200);
+	CloseObjective();
+	
+SetStageTime(30);
+
+AddCondition("timeout");
+		//SetHitNRun();
+CloseCondition();
+	
+CloseStage();
+
+
+AddStage(0);
+SetStageMessageIndex(7);
+SetStageTime(65);
+SetHUDIcon("stadium");
+	AddObjective("goto");
+		SetDestination("m1_stadium_trigger", "carsphere"); 
+	CloseObjective();
+		SetFadeOut( 0.1 );
+	SwapInDefaultCar();
+	SetSwapDefaultCarLocator("m1_bart_carend");
+	SetSwapForcedCarLocator("m1_hide_npc"); 
+	SetSwapPlayerLocator("m1_bart_stand");
+	ShowStageComplete();
+CloseStage();
+
+AddStage("final");
+	SetHUDIcon("kenny");
+	SetStageMessageIndex(8);
+	AddObjective("timer");
+		SetDurationTime(5);
+	CloseObjective();
+CloseStage();
+
+
+
+CloseMission();

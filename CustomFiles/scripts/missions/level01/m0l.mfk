@@ -1,0 +1,21 @@
+//Mission P3D
+LoadP3DFile("art\missions\level05\m0.p3d");
+LoadP3DFile("art\missions\level05\m1.p3d");
+
+//Box explosion effect (may use).
+LoadP3DFile("art\missions\level01\boxexpld.p3d");
+
+//Collectible Items - Soda can, donuts, and fireworks.
+LoadP3DFile("art\missions\level05\map.p3d");
+
+//AI Cars
+LoadDisposableCar("art\cars\cNerd.p3d","cNerd","AI"); 
+
+//Mission Objective Icons
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\char\kenny.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\trynsave.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\lardlads.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\vehicle\cola_v.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\object\paper.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\vehicle\ferrini.p3d" );
+LoadP3DFile("art\missions\level04\cola.p3d");

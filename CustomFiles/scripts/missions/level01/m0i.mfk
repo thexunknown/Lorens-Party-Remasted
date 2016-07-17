@@ -1,0 +1,105 @@
+SelectMission("m0");
+
+SetMissionResetPlayerOutCar("level5_apu_start","level5_carstart");
+SetDynaLoadData("l5z4.p3d;l5r3.p3d;l5r4.p3d;");
+
+UsePedGroup(5);
+
+AddStage();
+	SetStageMessageIndex(2);
+	SetHUDIcon("ferrini");
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+	SetStageTime(10);
+	AddCondition( "timeout" );
+	CloseCondition();
+CloseStage();
+
+AddStage();
+SetStageMessageIndex(3);
+	SetHUDIcon("paper");
+	AddObjective("delivery");
+		AddCollectible("m0_newspaper1", "map");
+		AddCollectible("m0_newspaper2", "map");
+		AddCollectible("m0_newspaper3", "map");
+		AddCollectible("m0_newspaper4", "map");
+		AddCollectible("m0_newspaper5", "map");
+		AddCollectible("m0_newspaper6", "map");
+		AddCollectible("m0_newspaper7", "map");
+	CloseObjective();
+	SetStageTime(40);
+	AddCondition( "timeout" );
+	CloseCondition();
+	StageStartMusicEvent("M6_drama");
+	ShowStageComplete();
+CloseStage();
+
+AddStage();
+SetStageMessageIndex(4);
+	SetHUDIcon("trynsave");
+	AddObjective("goto");
+		SetDestination("downtown", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+SetStageMessageIndex(5);
+	SetHUDIcon("paper");
+	AddObjective("delivery");
+		AddCollectible("m0_newspaper8", "map");
+		AddCollectible("m0_newspaper9", "map");
+		AddCollectible("m0_newspaper10", "map");
+		AddCollectible("m0_newspaper11", "map");
+		AddCollectible("m0_newspaper12", "map");
+		AddCollectible("m0_newspaper13", "map");
+	CloseObjective();
+	SetStageTime(25);
+	AddCondition( "timeout" );
+	CloseCondition();
+	StageStartMusicEvent("M6_drama");
+	ShowStageComplete();
+CloseStage();
+
+AddStage();
+SetStageMessageIndex(6);
+	SetHUDIcon("lardlads");
+	AddObjective("goto");
+		SetDestination("final", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+SetStageMessageIndex(5);
+	SetHUDIcon("paper");
+	AddObjective("delivery");
+		AddCollectible("m0_newspaper14", "map");
+		AddCollectible("m0_newspaper15", "map");
+		AddCollectible("m0_newspaper16", "map");
+		AddCollectible("m0_newspaper17", "map");
+		AddCollectible("m0_newspaper18", "map");
+	CloseObjective();
+	SetStageTime(30);
+	AddCondition( "timeout" );
+	CloseCondition();
+	StageStartMusicEvent("M6_drama");
+	ShowStageComplete();
+CloseStage();
+
+AddStage("final");
+SetHUDIcon("kenny");
+SetStageMessageIndex(7);
+	AddObjective("goto");
+		AddNPC("kenny", "m1_kenny_stand_2");
+		AddStageVehicle("cNerd","m1_kenny_carstart","NULL","Missions\level05\M1chase.con");
+		SetDestination("m1_stadium_trigger", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(20);
+	AddCondition( "timeout" );
+	CloseCondition();
+CloseStage();
+
+CloseMission();

@@ -1,0 +1,155 @@
+SelectMission("m2");
+
+SetMissionResetPlayerInCar("m2_carstart");
+SetDynaLoadData("l5r2.p3d;l5r1.p3d;l5z2.p3d;l5z3.p3d;");
+InitLevelPlayerVehicle("bart_v","m2_carstart","OTHER");
+
+//This is a forced car mission
+SetForcedCar();
+SetNumValidFailureHints( 5 );
+
+AddStage();
+RESET_TO_HERE();
+SetStageMessageIndex(1);
+SetHUDIcon("coffee"); //coffee
+	AddObjective("goto");
+		SetDestination("m2_coffee", "coffee"); //ADD COFFEE
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	SetStageTime(50);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+
+AddStage();
+SetStageMessageIndex(2);
+SetHUDIcon("kenny");
+	AddObjective("talkto");
+		AddNPC("kenny", "m2_kenny_aftercof");
+		AddStageVehicle("cNerd","m2_kenny_aftercof_car","NULL","Missions\level05\M1chase.con");
+		SetTalkToTarget("kenny", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(12);
+	SetHUDIcon("ferrini");
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+	SetStageTime(10);
+	AddCondition( "timeout" );
+	CloseCondition();
+CloseStage();
+
+AddStage();
+SetStageMessageIndex(3);
+SetHUDIcon("buzzcola");
+	AddObjective("goto");
+		SetDestination("m2_soda", "cola"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	SetStageTime(40);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage();
+SetStageTime(20);
+SetHUDIcon("cola_v");
+SetStageMessageIndex(99);
+	AddObjective("goto");
+		AddStageVehicle("cCola","m2_colavan_loc","NULL","Missions\colatruck.con", "male1");
+		SetDestination("m2_moestvloc", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("outofvehicle");
+	SetCondTime( 10000 );
+	CloseCondition();
+	SetStageTime(20);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(4);
+	SetHUDIcon("cola_v");
+	ActivateVehicle("cCola", "evade", "Missions\colatruck.con"); 
+	AddStageWaypoint("m2_colapt1");
+	AddStageWaypoint("m2_colapt2");
+	AddStageWaypoint("m2_colapt3");
+	AddStageWaypoint("m2_colapt4");
+	AddStageWaypoint("m2_colapt5");			
+	AddObjective("destroy");
+	   SetObjTargetVehicle("cCola");
+	CloseObjective();
+	AddObjective("dump");
+		SetObjTargetVehicle("cCola");
+		AddCollectible("m7_redkey","cola");
+	CloseObjective();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "bart_v" );
+	CloseCondition();
+	AddCondition("outofvehicle");
+	SetCondTime( 10000 );
+	CloseCondition();
+	SetStageTime(50);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage();
+SetStageTime(20);
+SetHUDIcon("moes");
+SetStageMessageIndex(5);
+	AddObjective("goto");
+		SetDestination("m2_moestvloc", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+AddCondition("timeout");
+CloseCondition();
+CloseStage();
+
+AddStage();
+SetHUDIcon("moes");
+SetStageMessageIndex(6);
+	AddObjective("goto");
+		SetDestination("m2_fireworks", "firewrks"); 
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(12);
+	SetHUDIcon("ferrini");
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+	SetStageTime(10);
+	AddCondition( "timeout" );
+	CloseCondition();
+CloseStage();
+
+
+AddStage("final");
+SetStageMessageIndex(7);
+SetStageTime(60);
+SetHUDIcon("kenny");
+	AddObjective("talkto");
+		AddNPC("kenny", "m2_kenny_afterfirewk");
+		AddStageVehicle("cNerd","m2_kenny_aftercof_car","NULL","Missions\level05\M1chase.con");
+		SetTalkToTarget("kenny", 0, 0);
+	CloseObjective();
+AddCondition("timeout");
+CloseCondition();
+CloseStage();
+
+CloseMission();
