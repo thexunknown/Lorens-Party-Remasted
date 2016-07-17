@@ -1,3 +1,6 @@
+//File created by xUnknown for the mod "Loren's Party 17"
+//https://github.com/thexunknown/Lorens-Party-Remasted
+
 LoadP3DFile("art\missions\level05\m6.p3d");
 
 LoadDisposableCar("art\cars\bart_v.p3d","bart_v","AI"); 
