@@ -49,6 +49,8 @@ AddStage();
 	SetFadeOut(0.5);
 CloseStage();
 
+//DESTROY CNERD
+
 AddStage();
     AddObjective("timer");
 		AddStageCharacter( "bart", "m5_bart_kburgerloc", "", "current", "m5_bart_carstart" );

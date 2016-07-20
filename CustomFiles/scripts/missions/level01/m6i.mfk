@@ -22,7 +22,7 @@ AddStage();
 	CloseObjective();
 CloseStage();
 
-AddStage("final");
+AddStage();
 	SetStageMessageIndex(3);
 	SetHUDIcon("saus");
 	ActivateVehicle("fishtruc", "NULL", "target"); 
@@ -49,13 +49,31 @@ AddStage("final");
 		AddCollectible("s7","saus");
 		AddCollectible("s8","saus");
 		AddCollectible("s9","saus");
-		AddCollectible("s10","saus");
+		AddCollectible("s10", "cola"); 
 		SetCollectibleEffect("wrench_collect");
 	CloseObjective();
 	AddCondition("outofvehicle");
 		SetCondTime( 10000 );
 	CloseCondition();
-	SetFadeOut(0.5);
+CloseStage();
+
+
+AddStage();
+	SetStageMessageIndex(4);
+	SetHUDIcon("colacrat");
+	AddObjective("timer");
+		SetDurationTime(3);
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	SetHUDIcon("moes");
+	AddStageVehicle("moe_v", "m6_moecar_loc", "NULL", "Missions\level01\m5evade.con");
+	SetStageMessageIndex(6);
+	AddObjective("goto");
+		SetDestination("m6_moes_loc", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
 CloseStage();
 
 CloseMission();

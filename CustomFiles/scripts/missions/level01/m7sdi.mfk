@@ -1,0 +1,46 @@
+//File created by xUnknown for the mod "Loren's Party 17"
+//https://github.com/thexunknown/Lorens-Party-Remasted
+
+SelectMission("m7sd");
+
+SetMissionResetPlayerOutCar("m7_bart_start","m7_bart_carstart");
+SetDynaLoadData("l5r1.p3d;l5r2.p3d;l5z2.p3d;");
+
+UsePedGroup(5);
+
+AddStage();
+	SetStageMessageIndex(1);
+	SetHUDIcon("moe");
+	AddStageVehicle("moe_v", "m7_moecar_loc", "NULL", "Missions\level01\m5evade.con");
+	AddObjective("talkto");
+		SetTalkToTarget("moe", 0, 0);
+	CloseObjective();
+	SetFadeOut(0.5);
+CloseStage();
+
+AddStage();
+    AddObjective("timer");
+		AddStageCharacter( "bart", "m7_outside", "", "current", "m7_bart_carstart" );
+        StayInBlack();
+        SetDurationTime(1);
+		SwapInDefaultCar();
+		SetSwapDefaultCarLocator("m7_bart_carstart");
+		SetSwapForcedCarLocator("m7_bart_carstart");
+		SetSwapPlayerLocator("m7_outside");
+    CloseObjective();
+CloseStage();
+
+
+AddStage();
+	SetStageMessageIndex(50);
+	AddStageVehicle("moe_v", "m7_moecar_loc", "NULL", "Missions\level01\m5evade.con", "moe"); //fix this error make moe driver
+	AddObjective("goto", "neither");
+		TurnGotoDialogOff();
+		SetDestination("m7_moecar_trig","triggersphere");
+		SetCollectibleEffect("wrench_collect");
+		MustActionTrigger();
+	CloseObjective();
+CloseStage();
+
+
+CloseMission();

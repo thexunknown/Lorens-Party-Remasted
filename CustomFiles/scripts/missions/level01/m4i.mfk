@@ -52,9 +52,9 @@ AddStage();
 		SetCondMinHealth( 0.0 );
 		SetCondTargetVehicle( "bart_v" );
 	CloseCondition();
-	SetStageTime(200);
-	AddCondition("timeout");
-	CloseCondition();
+	//SetStageTime(200);
+	//AddCondition("timeout");
+	//CloseCondition();
 CloseStage();
 
 

@@ -11,7 +11,7 @@ UsePedGroup(5);
 AddStage(0);
 	SetStageMessageIndex(99);
 	SetHUDIcon("ferrini");
-	AddStageVehicle("bart_v", "m4_bart_carstart", "NULL", "Missions\sattruck.con"); //load vehicle
+	//AddStageVehicle("bart_v", "m4_bart_carstart", "NULL", "Missions\sattruck.con"); //load vehicle
 	AddObjective("goto", "neither");
 		TurnGotoDialogOff();
 		SetDestination("m4_bartcar_trig","triggersphere");
