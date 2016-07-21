@@ -20,7 +20,7 @@ CloseStage();
 
 AddStage();
     AddObjective("timer");
-		AddStageCharacter( "bart", "m7_outside", "", "current", "m7_bart_carstart" );
+		AddStageCharacter("bart", "m7_outside", "", "current", "m7_bart_carstart" );
         StayInBlack();
         SetDurationTime(1);
 		SwapInDefaultCar();

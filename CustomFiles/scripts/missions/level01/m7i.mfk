@@ -11,17 +11,35 @@ InitLevelPlayerVehicle("moe_v","m7_moecar_loc","OTHER");
 SetForcedCar();
 SetNumValidFailureHints( 5 );
 
-AddStage("final");
+AddStage();
 	SetStageMessageIndex(2);
 	SetHUDIcon("trynsave");
+	AddStageVehicle("cBlbart", "m7_jake_car", "NULL", "Missions\level01\m5evade.con");
 	AddObjective("goto", "neither"); //TEST SO NO CRASHES!
-		TurnGotoDialogOff();
-		SetDestination("m7_jake_trig","triggersphere");
+		SetDestination("m7_jake_trig","carsphere");
 		SetCollectibleEffect("wrench_collect");
-		MustActionTrigger();
 	CloseObjective();
 CloseStage();
 
+AddStage();
+	//StartCountdown("count");
+    //AddToCountdownSequence( " ", 3000 );
+	SetStageMessageIndex(3);
+	SetHUDIcon("cBlbart");
+	//AddObjective("timer");
+	//	SetDurationTime(3);
+	//CloseObjective();
+CloseStage();
+
+AddStage("final");
+	SetStageMessageIndex(2);
+	SetHUDIcon("trynsave");
+	AddStageVehicle("cBlbart", "m7_jake_car", "NULL", "Missions\level01\m5evade.con");
+	AddObjective("goto", "neither");
+		SetDestination("m7_trynsave","carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
 
 
 CloseMission();
