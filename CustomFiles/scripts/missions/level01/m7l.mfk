@@ -2,6 +2,7 @@
 //https://github.com/thexunknown/Lorens-Party-Remasted
 
 LoadP3DFile("art\missions\level05\m7.p3d");
+LoadP3DFile("art\missions\level05\deathtriggers.p3d");
 
 LoadDisposableCar("art\cars\moe_v.p3d","moe_v","AI");  
 

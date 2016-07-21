@@ -22,13 +22,13 @@ AddStage();
 CloseStage();
 
 AddStage();
-	//StartCountdown("count");
-    //AddToCountdownSequence( " ", 3000 );
+	StartCountdown("count");
+    AddToCountdownSequence( " ", 3000 );
 	SetStageMessageIndex(3);
 	SetHUDIcon("cBlbart");
-	//AddObjective("timer");
-	//	SetDurationTime(3);
-	//CloseObjective();
+	AddObjective("timer");
+		SetDurationTime(3);
+	CloseObjective();
 CloseStage();
 
 AddStage("final");
