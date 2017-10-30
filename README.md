@@ -1,5 +1,5 @@
 # Lorens-Party-Remastered
-Continuation for a mod that ceased production in 2014
+Continuation for a mod that ceased production in 2014.
 
 Welcome to the Github page for my mod.
 
